@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.todo-list {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+li:hover {
+    background-color: #f2f2f2;
+}
+
+.toggle {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #6bd23e;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.toggle::after {
+    content: '\2713';
+    font-size: 20px;
+    color: white;
+    display: none;
+}
+
+li.done .toggle::after {
+    display: block;
+}
+
+.delete {
+    color: #ff3333;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.add-task {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #6bd23e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4ba02e;
+}
