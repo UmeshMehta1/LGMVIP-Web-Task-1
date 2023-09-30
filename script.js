@@ -1,28 +1,48 @@
+const taskInput = document.getElementById("taskInput");
+const addButton = document.getElementById("addButton");
+const taskList = document.getElementById("taskList");
+
 // Add a new task
-document.getElementById("addButton").addEventListener("click", function() {
-    const taskInput = document.getElementById("taskInput");
+addButton.addEventListener("click", () => {
     const taskText = taskInput.value.trim();
     if (taskText !== "") {
-        const ul = document.getElementById("list");
-        const li = document.createElement("li");
-        li.innerHTML = `<span class="toggle"></span>${taskText}<span class="delete">✖</span>`;
-        ul.appendChild(li);
+        createTask(taskText);
         taskInput.value = "";
     }
 });
 
-// Toggle task completion
-document.getElementById("list").addEventListener("click", function(e) {
-    if (e.target.classList.contains("toggle")) {
-        const listItem = e.target.parentElement;
-        listItem.classList.toggle("done");
+// Create a new task and add it to the list
+function createTask(taskText) {
+    const li = document.createElement("li");
+    li.innerHTML = `
+        <span class="task-text">${taskText}</span>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+    `;
+    taskList.appendChild(li);
+
+    // Add event listeners for edit and delete buttons
+    li.querySelector(".edit").addEventListener("click", () => editTask(li));
+    li.querySelector(".delete").addEventListener("click", () => deleteTask(li));
+}
+
+// Edit a task
+function editTask(li) {
+    const taskText = li.querySelector(".task-text").textContent;
+    const newText = prompt("Edit task:", taskText);
+    if (newText !== null) {
+        li.querySelector(".task-text").textContent = newText;
     }
-});
+}
 
 // Delete a task
-document.getElementById("list").addEventListener("click", function(e) {
-    if (e.target.classList.contains("delete")) {
-        const listItem = e.target.parentElement;
-        listItem.remove();
+function deleteTask(li) {
+    taskList.removeChild(li);
+}
+
+// Mark a task as completed
+taskList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("task-text")) {
+        e.target.classList.toggle("completed");
     }
 });

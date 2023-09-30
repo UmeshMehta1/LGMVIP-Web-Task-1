@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>To-Do List</title>
+    <title>ToDo App</title>
 </head>
 <body>
-    <div class="todo-list">
-        <div class="add-task">
+    <div class="container">
+        <h1 class="purple-heading">ToDo App</h1>
+        <div class="input-section">
             <input type="text" id="taskInput" placeholder="Add a new task">
             <button id="addButton">Add</button>
         </div>
-
-        <ul id="list">
-            <!-- Sample To-Do Items -->
-            <!-- <li><span class="toggle"></span>Task 1<span class="delete">✖</span></li>
-            <li><span class="toggle"></span>Task 2<span class="delete">✖</span></li>
-            <li><span class="toggle"></span>Task 3<span class="delete">✖</span></li> -->
-        </ul>
-       
+        <ul id="taskList"></ul>
     </div>
 
     <script src="script.js"></script>
